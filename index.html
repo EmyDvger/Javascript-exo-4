@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>JavaScript exo 4</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="firstname">Prénom :</label>
+        <input type="text" name="firstname" id="firstname" value="" />
+      </div>
+      <div>
+        <label for="lastname">Nom :</label>
+        <input type="text" name="lastname" id="lastname" value="" />
+      </div>
+      <div>
+        <label for="city">Ville :</label>
+        <input type="text" name="city" id="city" value="" />
+      </div>
+      <div>
+        <input type="button" name="button" value="Valider" onClick="lol()"/>
+      </div>
+      </form>
+      <script>
+        function lol() {
+          var firstname = document.getElementById('firstname').value;
+          var lastname = document.getElementById('lastname').value;
+          var city = document.getElementById('city').value;
+          alert('info ' + firstname + ' ' + lastname + ' ' + city);
+        }
+      </script>
+  </body>
+</html>
