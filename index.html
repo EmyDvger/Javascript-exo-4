@@ -19,15 +19,21 @@
         <input type="text" name="city" id="city" value="" />
       </div>
       <div>
-        <input type="button" name="button" value="Valider" onClick="lol()"/>
+        <input type="submit" name="submit" value="Valider" onClick="datacollect()"/>
+        <!-- quand on click sur onClick on va appeler une fonction -->
       </div>
       </form>
       <script>
-        function lol() {
+      /*entre accolade s'est les fonctions qui s'exécute. le .value recup valeur
+      récupération des données enregistrées via le formualaire.
+      la fonction me permet de recuperer des données*/
+        function datacollect() {
+          //variables permettent de stocker/recuperer les valeurs formulaire
           var firstname = document.getElementById('firstname').value;
           var lastname = document.getElementById('lastname').value;
           var city = document.getElementById('city').value;
-          alert('info ' + firstname + ' ' + lastname + ' ' + city);
+          //l alerte permet d afficher ses données
+          alert('prenom : ' + firstname + '\nNom : ' + lastname + '\nVille : ' + city);
         }
       </script>
   </body>
