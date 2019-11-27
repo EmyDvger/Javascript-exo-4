@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-  <head>
-    <meta charset="utf-8"/>
-    <title>JavaScript exo 4</title>
-  </head>
-  <body>
-    <form>
-      <div>
-        <label for="firstname">Prénom :</label>
-        <input type="text" name="firstname" id="firstname" value="" />
-      </div>
-      <div>
-        <label for="lastname">Nom :</label>
-        <input type="text" name="lastname" id="lastname" value="" />
-      </div>
-      <div>
-        <label for="city">Ville :</label>
-        <input type="text" name="city" id="city" value="" />
-      </div>
-      <div>
-        <input type="submit" name="submit" value="Valider" onClick="datacollect()"/>
-        <!-- quand on click sur onClick on va appeler une fonction -->
-      </div>
-      </form>
-      <script>
-      /*entre accolade s'est les fonctions qui s'exécute. le .value recup valeur
-      récupération des données enregistrées via le formualaire.
-      la fonction me permet de recuperer des données*/
-        function datacollect() {
-          //variables permettent de stocker/recuperer les valeurs formulaire
-          var firstname = document.getElementById('firstname').value;
-          var lastname = document.getElementById('lastname').value;
-          var city = document.getElementById('city').value;
-          //l alerte permet d afficher ses données
-          alert('prenom : ' + firstname + '\nNom : ' + lastname + '\nVille : ' + city);
-        }
-      </script>
+<head>
+  <meta charset="utf-8"/>
+  <title>JavaScript exo 4</title>
+</head>
+<body>
+  <form>
+    <div>
+      <label for="firstname">Prénom :</label>
+      <input type="text" name="firstname" id="firstname" value="" />
+    </div>
+    <div>
+      <label for="lastname">Nom :</label>
+      <input type="text" name="lastname" id="lastname" value="" />
+    </div>
+    <div>
+      <label for="city">Ville :</label>
+      <input type="text" name="city" id="city" value="" />
+    </div>
+    <div>
+      <input type="submit" name="submitButton" value="Valider" onclick="datacollect()"/>
+      <!-- quand on click sur onClick on va appeler une fonction -->
+    </div>
+  </form>
+  <script>
+  /* Version 2 fonctionne qu'à condition d avoir un seul 'submit'*/
+  /*document.addEventlistener('submit', function send(){
+    var firstname = document.getElementById('firstname').value;
+    var lastname = document.getElementById('lastname').value;
+    var city = document.getElementById('city').value;
+    //l alerte permet d afficher ses données
+    alert('prenom : ' + firstname + '\nNom : ' + lastname + '\nVille : ' + city);
+  });*/
+
+  /*entre accolade s'est les fonctions qui s'exécute. le .value recup valeur
+  récupération des données enregistrées via le formualaire.
+  la fonction me permet de recuperer des données*/
+  function datacollect() {
+    //variables permettent de stocker/recuperer les valeurs formulaire
+    var firstname = document.getElementById('firstname').value;
+    var lastname = document.getElementById('lastname').value;
+    var city = document.getElementById('city').value;
+      //regex ici permet d autorisé le pattern :les majuscules,minuscule,caractere speciaux
+    var regexText = /[A-Za-zéèëîù\-]+/;
+    //les conditions
+    if((regexText.test(lastname) == true) && (regexText.test(firstname) == true) && (regexText.test(city) == true)){
+      alert('prenom : ' + firstname + '\nNom : ' + lastname + '\nVille : ' + city);
+    }else{
+      alert('Erreur');
+    }
+  }
+    //l alerte permet d afficher ses données
+    /*alert('prenom : ' + firstname + '\nNom : ' + lastname + '\nVille : ' + city);}*/
+  </script>
   </body>
-</html>
+  </html>
